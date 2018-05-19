@@ -3,7 +3,7 @@ dependencies: []
 
 galaxy_info:
   author: qwsj
-  description: role for install zabbix-agent on the windows server
+  description: Role for install Zabbix-Agent on the Windows Server
   issue_tracker_url: https://github.com/qwsj/win-zabbix-agent/issues
   license: AGPLv3
   min_ansible_version: 2.4

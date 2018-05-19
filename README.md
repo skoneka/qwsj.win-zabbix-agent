@@ -1,18 +1,18 @@
 # Ansible role for install Zabbix-Agent on the Windows Server
 
 
-##### Tested platforms are:
+#### Tested platforms are:
 * Windows Server 2012 R2
 
 
-##### Dependency:
+#### Dependency:
 This role uses the WinRM module on the local and remote machine.
 WinRM module for local machine: `pip install https://github.com/diyan/pywinrm/archive/master.zip#egg=pywinrm`
 
 WinRM module for Windows machine (use PowerShell console): `@powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((new-object net.webclient).DownloadString('https://github.com/ansible/ansible/raw/devel/examples/scripts/ConfigureRemotingForAnsible.ps1'))"`
 
 
-##### Role Variables
+#### Role Variables:
 * zabbix_server_ip - variable for setting IP address of zabbix-server
 * zabbix_agent_url - variable for setting URL of zabbix-agent archive
 * zabbix_agent_ip - listen IP address in zabbix-agent configuration
@@ -21,7 +21,7 @@ WinRM module for Windows machine (use PowerShell console): `@powershell -NoProfi
 
 
 
-##### Example Inventory file
+#### Example Inventory file:
 ```
 [windows]
 10.10.10.4
@@ -34,7 +34,7 @@ ansible_winrm_server_cert_validation=ignore
 ```
 
 
-##### Example Playbook
+#### Example Playbook:
 ```
 ---
 - hosts: windows
@@ -46,4 +46,5 @@ ansible_winrm_server_cert_validation=ignore
 ```
 
 
-Issue? use [https://github.com/qwsj/win-zabbix-agent/issues](https://github.com/qwsj/win-zabbix-agent/issues)
+#### Issue?
+[https://github.com/qwsj/win-zabbix-agent/issues](https://github.com/qwsj/win-zabbix-agent/issues)
