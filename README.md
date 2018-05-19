@@ -42,7 +42,7 @@ ansible_winrm_server_cert_validation=ignore
   vars:
     - zabbix_server_ip: '10.10.10.22'
   roles:
-    - windows.zabbix
+    - { role: qwsj.win-zabbix-agent }
 ```
 
 
