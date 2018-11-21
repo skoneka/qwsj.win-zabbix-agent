@@ -26,7 +26,7 @@ WinRM module for Windows machine (use PowerShell console):
 
 ### Role Variables:
 * zabbix_agent_version - variable for pick version (3 for 3.4.6 / 4 for 4.0.0)
-* zabbix_agent_version_hw - optional variable for change hw zabbix agent version (i386 or 32 for i386 / amd64 or 64 use amd64)
+* zabbix_agent_version_hw - optional variable for change hw zabbix agent version (i386 or 32 for i386 / amd64 or 64 for amd64)
 * zabbix_agent_url_v3 - variable for setting URL of zabbix-agent archive (Version 3.4.6 i386 and amd64)
 * zabbix_agent_url_v4_i386 - variable for setting URL of zabbix-agent archive (Version 4.0.0 i386)
 * zabbix_agent_url_v4_amd64 - variable for setting URL of zabbix-agent archive (Version 4.0.0 amd64)
