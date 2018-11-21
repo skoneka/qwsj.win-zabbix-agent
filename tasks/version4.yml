@@ -3,13 +3,13 @@
   win_get_url:
     url: '{{ zabbix_agent_url_v4_i386 }}'
     dest: C:\Zabbix\zabbix_agent.zip
-  when: (arch_fact == '32')
+  when: (win_arch_fact == '32')
 
 - name: V4 Download zabbix-agent.zip for amd64
   win_get_url:
     url: '{{ zabbix_agent_url_v4_amd64 }}'
     dest: C:\Zabbix\zabbix_agent.zip
-  when: (arch_fact == '64')
+  when: (win_arch_fact == '64')
 
 - name: V4 Unzip zabbix-agent.zip
   win_unzip:
