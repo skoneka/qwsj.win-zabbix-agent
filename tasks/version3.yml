@@ -20,9 +20,8 @@
     src: zabbix_agentd.win.conf.j2
     dest: 'C:\Zabbix\conf\zabbix_agentd.win.conf'
 
-- name: V3 Install zabbix-agent for arch {{ windows_arch_fact }}
-  win_command: CMD /C "C:\Zabbix\bin\win{{ windows_arch_fact }}\zabbix_agentd.exe --config C:\Zabbix\conf\zabbix_agentd.win.conf --install"
+- name: V3 Install zabbix-agent for arch {{ arch_fact }}
+  win_command: CMD /C 'C:\Zabbix\bin\win{{ arch_fact }}\zabbix_agentd.exe --config C:\Zabbix\conf\zabbix_agentd.win.conf --install'
 
-- name: V3 Start zabbix-agent for arch {{ windows_arch_fact }}
-  win_command: CMD /C "C:\Zabbix\bin\win{{ windows_arch_fact }}\zabbix_agentd.exe --config C:\Zabbix\conf\zabbix_agentd.win.conf --start"
-
+- name: V3 Start zabbix-agent for arch {{ arch_fact }}
+  win_command: CMD /C 'C:\Zabbix\bin\win{{ arch_fact }}\zabbix_agentd.exe --config C:\Zabbix\conf\zabbix_agentd.win.conf --start'
