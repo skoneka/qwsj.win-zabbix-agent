@@ -3,6 +3,7 @@
   remote_user: Administrator
   vars:
     - zabbix_server_ip: '10.10.10.22'
+    - zabbix_server_active_ip: '127.0.0.1'
+    - zabbix_agent_version: '4'
   roles:
     - { role: qwsj.win-zabbix-agent }
-    

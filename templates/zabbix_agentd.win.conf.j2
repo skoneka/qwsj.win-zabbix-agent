@@ -20,7 +20,7 @@
 # Default:
 # LogFile=
 
-LogFile=c:\Zabbix\zabbix_agentd.log
+LogFile=C:\Zabbix\zabbix_agentd.log
 
 ### Option: LogFileSize
 #	Maximum size of log file in MB.
@@ -60,6 +60,8 @@ LogFile=c:\Zabbix\zabbix_agentd.log
 # Mandatory: no
 # Default:
 # EnableRemoteCommands=0
+
+EnableRemoteCommands={{ zabbix_agent_remote_cmd }}
 
 ### Option: LogRemoteCommands
 #	Enable logging of executed shell commands as warnings.
@@ -125,7 +127,7 @@ ListenIP={{ zabbix_agent_ip }}
 # Default:
 # ServerActive=
 
-ServerActive={{ zabbix_server_ip }}
+ServerActive={{ zabbix_server_active_ip }}
 
 ### Option: Hostname
 #	Unique, case sensitive hostname.
@@ -249,11 +251,11 @@ Timeout={{ zabbix_agent_timeout }}
 # Default:
 # Include=
 
-# Include=c:\zabbix\zabbix_agentd.userparams.conf
-# Include=c:\zabbix\zabbix_agentd.conf.d\
-# Include=c:\zabbix\zabbix_agentd.conf.d\*.conf
+# Include=C:\zabbix\zabbix_agentd.userparams.conf
+# Include=C:\zabbix\zabbix_agentd.conf.d\
+# Include=C:\zabbix\zabbix_agentd.conf.d\*.conf
 
-Include=c:\Zabbix\conf\conf.d\*.conf
+Include=C:\Zabbix\conf\conf.d\*.conf
 
 ####### USER-DEFINED MONITORED PARAMETERS #######
 

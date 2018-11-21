@@ -1,0 +1,37 @@
+---
+- name: V3 Download zabbix-agent.zip for i386 and amd64
+  win_get_url:
+    url: '{{ zabbix_agent_url_v3 }}'
+    dest: C:\Zabbix\zabbix_agent.zip
+
+- name: V3 Unzip zabbix-agent.zip
+  win_unzip:
+    src: C:\Zabbix\zabbix_agent.zip
+    dest: C:\Zabbix\
+    delete_archive: yes
+
+- name: V3 Create zabbix config directory
+  win_file:
+    path: 'C:\Zabbix\conf\conf.d'
+    state: directory
+
+- name: V3 Make config from template
+  win_template:
+    src: zabbix_agentd.win.conf.j2
+    dest: 'C:\Zabbix\conf\zabbix_agentd.win.conf'
+
+- name: V3 Install zabbix-agent i386
+  win_command: CMD /C "C:\Zabbix\bin\win32\zabbix_agentd.exe --config C:\Zabbix\conf\zabbix_agentd.win.conf --install"
+  when: (zabbix_agent_version_hw == 'i386' or zabbix_agent_version_hw == '32')
+
+- name: V3 Start zabbix-agent i386
+  win_command: CMD /C "C:\Zabbix\bin\win32\zabbix_agentd.exe --config C:\Zabbix\conf\zabbix_agentd.win.conf --start"
+  when: (zabbix_agent_version_hw == 'i386' or zabbix_agent_version_hw == '32')
+
+- name: V3 Install zabbix-agent amd64
+  win_command: CMD /C "C:\Zabbix\bin\win64\zabbix_agentd.exe --config C:\Zabbix\conf\zabbix_agentd.win.conf --install"
+  when: (zabbix_agent_version_hw == 'amd64' or zabbix_agent_version_hw == '64')
+
+- name: V3 Start zabbix-agent amd64
+  win_command: CMD /C "C:\Zabbix\bin\win64\zabbix_agentd.exe --config C:\Zabbix\conf\zabbix_agentd.win.conf --start"
+  when: (zabbix_agent_version_hw == 'amd64' or zabbix_agent_version_hw == '64')
