@@ -12,6 +12,6 @@ galaxy_info:
     versions:
     - 2012R2
   galaxy_tags:
-   - Windows
-   - Zabbix
-   - WinRM
+   - windows
+   - zabbix
+   - winrm

@@ -4,6 +4,15 @@
     path: 'C:\Zabbix'
     state: directory
 
+- name: Fact for 32 arch
+  set_fact:
+    windows_arch_fact: 32
+
+- name: Update fact for 64 arch
+  set_fact:
+    windows_arch_fact: 64
+  when: (ansible_architecture == '64-bit')
+
 - import_tasks: version3.yml
   when: (zabbix_agent_version == '3')
 

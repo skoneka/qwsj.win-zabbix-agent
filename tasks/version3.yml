@@ -20,18 +20,9 @@
     src: zabbix_agentd.win.conf.j2
     dest: 'C:\Zabbix\conf\zabbix_agentd.win.conf'
 
-- name: V3 Install zabbix-agent i386
-  win_command: CMD /C "C:\Zabbix\bin\win32\zabbix_agentd.exe --config C:\Zabbix\conf\zabbix_agentd.win.conf --install"
-  when: (zabbix_agent_version_hw == 'i386' or zabbix_agent_version_hw == '32')
+- name: V3 Install zabbix-agent for arch {{ windows_arch_fact }}
+  win_command: CMD /C "C:\Zabbix\bin\win{{ windows_arch_fact }}\zabbix_agentd.exe --config C:\Zabbix\conf\zabbix_agentd.win.conf --install"
 
-- name: V3 Start zabbix-agent i386
-  win_command: CMD /C "C:\Zabbix\bin\win32\zabbix_agentd.exe --config C:\Zabbix\conf\zabbix_agentd.win.conf --start"
-  when: (zabbix_agent_version_hw == 'i386' or zabbix_agent_version_hw == '32')
+- name: V3 Start zabbix-agent for arch {{ windows_arch_fact }}
+  win_command: CMD /C "C:\Zabbix\bin\win{{ windows_arch_fact }}\zabbix_agentd.exe --config C:\Zabbix\conf\zabbix_agentd.win.conf --start"
 
-- name: V3 Install zabbix-agent amd64
-  win_command: CMD /C "C:\Zabbix\bin\win64\zabbix_agentd.exe --config C:\Zabbix\conf\zabbix_agentd.win.conf --install"
-  when: (zabbix_agent_version_hw == 'amd64' or zabbix_agent_version_hw == '64')
-
-- name: V3 Start zabbix-agent amd64
-  win_command: CMD /C "C:\Zabbix\bin\win64\zabbix_agentd.exe --config C:\Zabbix\conf\zabbix_agentd.win.conf --start"
-  when: (zabbix_agent_version_hw == 'amd64' or zabbix_agent_version_hw == '64')
