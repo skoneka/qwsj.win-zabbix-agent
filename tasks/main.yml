@@ -11,7 +11,7 @@
 - name: Update fact for 64 arch
   set_fact:
     win_arch_fact: 64
-  when: (ansible_architecture == '64-bit')
+  when: (ansible_architecture == '64-bit' or ansible_architecture == '64-разрядная')
 
 - import_tasks: version3.yml
   when: (zabbix_agent_version == '3')
