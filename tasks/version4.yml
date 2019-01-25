@@ -28,7 +28,12 @@
     dest: 'C:\Zabbix\conf\zabbix_agentd.win.conf'
 
 - name: V4 Install zabbix-agent for arch {{ win_arch_fact }}
-  win_command: CMD /C 'C:\Zabbix\bin\zabbix_agentd.exe --config C:\Zabbix\conf\zabbix_agentd.win.conf --install'
+  win_command: CMD /C "C:\Zabbix\bin\zabbix_agentd.exe --config C:\Zabbix\conf\zabbix_agentd.win.conf --install"
+  register: fail_me
+  failed_when: "fail_me.rc != 0 and fail_me.rc != 1"
 
 - name: V4 Start zabbix-agent for arch {{ win_arch_fact }}
-  win_command: CMD /C 'C:\Zabbix\bin\zabbix_agentd.exe --config C:\Zabbix\conf\zabbix_agentd.win.conf --start'
+  win_command: CMD /C "C:\Zabbix\bin\zabbix_agentd.exe --config C:\Zabbix\conf\zabbix_agentd.win.conf --start"
+  register: fail_me
+  failed_when: "fail_me.rc != 0 and fail_me.rc != 1"
+
