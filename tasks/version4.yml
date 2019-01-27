@@ -3,13 +3,13 @@
   win_get_url:
     url: '{{ zabbix_agent_url_v4_i386 }}'
     dest: C:\Zabbix\zabbix_agent.zip
-  when: (win_arch_fact == '32')
+  when: (win_arch_fact == 32)
 
 - name: V4 Download zabbix-agent.zip for amd64
   win_get_url:
     url: '{{ zabbix_agent_url_v4_amd64 }}'
     dest: C:\Zabbix\zabbix_agent.zip
-  when: (win_arch_fact == '64')
+  when: (win_arch_fact == 64)
 
 - name: V4 Unzip zabbix-agent.zip
   win_unzip:
@@ -28,7 +28,12 @@
     dest: 'C:\Zabbix\conf\zabbix_agentd.win.conf'
 
 - name: V4 Install zabbix-agent for arch {{ win_arch_fact }}
-  win_command: CMD /C 'C:\Zabbix\bin\zabbix_agentd.exe --config C:\Zabbix\conf\zabbix_agentd.win.conf --install'
+  win_command: CMD /C "C:\Zabbix\bin\zabbix_agentd.exe --config C:\Zabbix\conf\zabbix_agentd.win.conf --install"
+  register: fail_me
+  failed_when: "fail_me.rc != 0 and fail_me.rc != 1"
 
 - name: V4 Start zabbix-agent for arch {{ win_arch_fact }}
-  win_command: CMD /C 'C:\Zabbix\bin\zabbix_agentd.exe --config C:\Zabbix\conf\zabbix_agentd.win.conf --start'
+  win_command: CMD /C "C:\Zabbix\bin\zabbix_agentd.exe --config C:\Zabbix\conf\zabbix_agentd.win.conf --start"
+  register: fail_me
+  failed_when: "fail_me.rc != 0 and fail_me.rc != 1"
+

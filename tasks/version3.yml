@@ -4,6 +4,11 @@
     url: '{{ zabbix_agent_url_v3 }}'
     dest: C:\Zabbix\zabbix_agent.zip
 
+- name: V3 Stop zabbix-agent for arch {{ win_arch_fact }}
+  win_command: CMD /C 'C:\Zabbix\bin\win{{ win_arch_fact }}\zabbix_agentd.exe --config C:\Zabbix\conf\zabbix_agentd.win.conf --stop'
+  register: fail_me
+  failed_when: "fail_me.rc != 0 and fail_me.rc != 1"
+
 - name: V3 Unzip zabbix-agent.zip
   win_unzip:
     src: C:\Zabbix\zabbix_agent.zip
@@ -22,6 +27,10 @@
 
 - name: V3 Install zabbix-agent for arch {{ win_arch_fact }}
   win_command: CMD /C 'C:\Zabbix\bin\win{{ win_arch_fact }}\zabbix_agentd.exe --config C:\Zabbix\conf\zabbix_agentd.win.conf --install'
+  register: fail_me
+  failed_when: "fail_me.rc != 0 and fail_me.rc != 1"
 
 - name: V3 Start zabbix-agent for arch {{ win_arch_fact }}
   win_command: CMD /C 'C:\Zabbix\bin\win{{ win_arch_fact }}\zabbix_agentd.exe --config C:\Zabbix\conf\zabbix_agentd.win.conf --start'
+  register: fail_me
+  failed_when: "fail_me.rc != 0 and fail_me.rc != 1"
