@@ -1,7 +1,7 @@
 ---
 zabbix_agent_url_v3: 'https://www.zabbix.com/downloads/3.4.6/zabbix_agents_3.4.6.win.zip'
-zabbix_agent_url_v4_i386: 'https://www.zabbix.com/downloads/4.0.0/zabbix_agents-4.0.0-win-i386.zip'
-zabbix_agent_url_v4_amd64: 'https://www.zabbix.com/downloads/4.0.0/zabbix_agents-4.0.0-win-amd64.zip'
+zabbix_agent_url_v4_i386: 'https://www.zabbix.com/downloads/4.0.5/zabbix_agents-4.0.5-win-i386.zip'
+zabbix_agent_url_v4_amd64: 'https://www.zabbix.com/downloads/4.0.5/zabbix_agents-4.0.5-win-amd64.zip'
 zabbix_agent_ip: '0.0.0.0'
 zabbix_agent_port: '10050'
 zabbix_agent_timeout: '10'
